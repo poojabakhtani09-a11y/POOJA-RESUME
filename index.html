@@ -10,86 +10,235 @@
   <link rel="icon" type="image/png" href="favicon.jpeg">
 
   <meta name="description"
-        content="Pooja Bakhtani - B.Com, LL.B professional with 8+ years of CA-office experience in Taxation, GST, TDS, Audit, MIS Finance, AI Automation, Power BI, SQL and Data Analytics.">
+        content="Pooja Bakhtani - B.Com, LL.B professional with 8+ years of experience in Taxation, GST, TDS, Audit, MIS Finance, AI Automation, Power BI, SQL and Data Analytics.">
 
   <style>
+    :root {
+      --navy: #0f172a;
+      --blue: #2563eb;
+      --cyan: #0891b2;
+      --teal: #0f766e;
+      --light: #f1f5f9;
+      --white: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow: 0 12px 35px rgba(15, 23, 42, 0.09);
+      --gradient: linear-gradient(135deg, #0f172a, #164e63, #2563eb);
+    }
+
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-      background: #f5f7fb;
-      color: #222;
-      line-height: 1.6;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.08), transparent 30%),
+        #f8fafc;
+      color: var(--text);
+      line-height: 1.7;
     }
 
-    .card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 28px;
-      margin: 20px 0;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    a {
+      color: inherit;
     }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* ================= HEADER ================= */
 
     .hero {
+      margin: 30px auto;
+      padding: 55px 35px;
+      border-radius: 28px;
+      background: var(--gradient);
+      color: white;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, .22);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+    }
+
+    .hero::before {
+      width: 260px;
+      height: 260px;
+      top: -100px;
+      right: -80px;
+    }
+
+    .hero::after {
+      width: 180px;
+      height: 180px;
+      bottom: -100px;
+      left: -50px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
       text-align: center;
-      padding: 40px 25px;
     }
 
-    h1 {
-      margin-bottom: 8px;
-      font-size: 34px;
+    .profile-badge {
+      display: inline-block;
+      padding: 7px 15px;
+      border-radius: 30px;
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.2);
+      font-size: 13px;
+      margin-bottom: 18px;
+      letter-spacing: .5px;
     }
 
-    h2 {
-      margin-top: 0;
-      color: #222;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 8px;
-    }
-
-    h3 {
-      margin-bottom: 4px;
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.1;
+      margin-bottom: 15px;
+      letter-spacing: -1.5px;
     }
 
     .tagline {
-      font-size: 18px;
-      font-weight: bold;
-      color: #555;
+      font-size: clamp(15px, 2vw, 19px);
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #bae6fd;
+      margin-bottom: 14px;
     }
 
-    .summary {
-      max-width: 850px;
-      margin: 20px auto;
-      color: #444;
+    .hero-subtitle {
+      color: #e0f2fe;
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .btn {
-      display: inline-block;
-      margin: 8px 5px;
-      padding: 11px 20px;
-      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 11px 19px;
+      border-radius: 12px;
       text-decoration: none;
-      border: 1px solid #222;
-      color: #222;
-      background: #fff;
-      transition: 0.2s;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .25s ease;
+      border: 1px solid rgba(255,255,255,.3);
+      color: white;
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(8px);
     }
 
     .btn:hover {
-      background: #222;
-      color: white;
+      transform: translateY(-3px);
+      background: white;
+      color: var(--navy);
+      box-shadow: 0 8px 20px rgba(0,0,0,.18);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    .btn-primary {
+      background: white;
+      color: var(--navy);
     }
+
+    /* ================= STATS ================= */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .stat {
+      background: white;
+      padding: 22px 15px;
+      text-align: center;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 27px;
+      color: var(--blue);
+    }
+
+    .stat span {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ================= CARDS ================= */
+
+    .card {
+      background: white;
+      border-radius: 22px;
+      padding: 30px;
+      margin: 22px 0;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .section-icon {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #dbeafe, #cffafe);
+      font-size: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: var(--navy);
+    }
+
+    h3 {
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    .summary-text {
+      color: #475569;
+      font-size: 16px;
+    }
+
+    /* ================= SKILLS ================= */
 
     .skills {
       display: flex;
@@ -98,59 +247,256 @@
     }
 
     .skill {
-      background: #f1f3f6;
-      padding: 8px 13px;
-      border-radius: 20px;
-      font-size: 14px;
+      padding: 9px 14px;
+      border-radius: 30px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #dbeafe;
+      font-size: 13px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .skill:hover {
+      transform: translateY(-2px);
+      background: #dbeafe;
+    }
+
+    /* ================= EXPERIENCE ================= */
+
+    .timeline {
+      position: relative;
+      margin-left: 8px;
     }
 
     .experience {
-      margin-bottom: 25px;
+      position: relative;
+      padding: 0 0 28px 30px;
+      border-left: 2px solid #cbd5e1;
+    }
+
+    .experience:last-child {
+      border-left: 2px solid transparent;
+    }
+
+    .experience::before {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--blue);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px #93c5fd;
     }
 
     .date {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 10px;
+      display: inline-block;
+      margin: 5px 0 13px;
+      padding: 5px 10px;
+      border-radius: 7px;
+      background: #f1f5f9;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
     }
 
     ul {
       padding-left: 20px;
     }
 
-    .project {
-      padding: 15px;
-      margin: 12px 0;
-      background: #f8f9fb;
-      border-radius: 10px;
+    li {
+      margin: 7px 0;
+      color: #475569;
     }
 
-    .contact {
+    /* ================= PROJECTS ================= */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .project {
+      padding: 22px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #f8fafc, #eff6ff);
+      border: 1px solid #dbeafe;
+      transition: .25s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(37,99,235,.12);
+    }
+
+    .project-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .tech {
+      display: inline-block;
+      margin: 8px 0;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--teal);
+      background: #ccfbf1;
+      padding: 5px 9px;
+      border-radius: 6px;
+    }
+
+    .project p {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    /* ================= TWO COLUMN ================= */
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    /* ================= PROFILE ================= */
+
+    .profile-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .profile-btn {
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    .profile-btn:hover {
+      transform: translateY(-3px);
+      background: var(--blue);
+    }
+
+    /* ================= QR ================= */
+
+    .qr {
       text-align: center;
     }
+
+    .qr img {
+      padding: 10px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(15,23,42,.12);
+      margin: 10px 0;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact {
+      background: var(--gradient);
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      color: white;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+
+    .contact-item a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* ================= FOOTER ================= */
 
     .footer {
       text-align: center;
-      color: #777;
-      font-size: 14px;
-      padding: 20px;
+      color: #64748b;
+      padding: 28px 10px;
+      font-size: 13px;
     }
 
-    @media (max-width: 700px) {
-      body {
-        padding: 10px;
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 800px) {
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
       }
 
       .grid {
         grid-template-columns: 1fr;
       }
 
-      h1 {
-        font-size: 27px;
+      .hero {
+        padding: 42px 20px;
       }
 
-      .hero {
-        padding: 30px 15px;
+      .card {
+        padding: 23px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .container {
+        width: 94%;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .tagline {
+        font-size: 13px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .buttons {
+        width: 100%;
+      }
+
+      .contact-info {
+        flex-direction: column;
+      }
+
+      .contact-item {
+        width: 100%;
       }
     }
   </style>
@@ -158,70 +504,115 @@
 
 <body>
 
+<div class="container">
+
   <!-- HERO -->
-  <div class="card hero">
+  <header class="hero">
+    <div class="hero-content">
 
-    <h1>Pooja Bakhtani</h1>
+      <div class="profile-badge">
+        ✦ Finance • Data • AI Automation Professional
+      </div>
 
-    <p class="tagline">
-      AI AUTOMATION • N8N • MIS FINANCE • DATA ANALYTICS
-    </p>
+      <h1>Pooja Bakhtani</h1>
 
-    <p>
-      B.Com • LL.B | 8+ Years Professional Experience
-    </p>
+      <div class="tagline">
+        AI AUTOMATION • N8N • MIS FINANCE • DATA ANALYTICS
+      </div>
 
-    <a class="btn"
-       href="https://www.linkedin.com/in/adv-miss-pooja-bakhtani-1078431a0/"
-       target="_blank">
-      LinkedIn
-    </a>
+      <p class="hero-subtitle">
+        B.Com • LL.B &nbsp;|&nbsp; 8+ Years Professional Experience
+      </p>
 
-    <a class="btn"
-       href="./pooja resume final.pdf"
-       target="_blank"
-       download>
-      Download Resume
-    </a>
+      <div class="buttons">
 
-    <a class="btn"
-       href="https://wa.me/919977730624"
-       target="_blank">
-      WhatsApp
-    </a>
+        <a class="btn btn-primary"
+           href="https://www.linkedin.com/in/adv-miss-pooja-bakhtani-1078431a0/"
+           target="_blank">
+          🔗 LinkedIn
+        </a>
 
-    <a class="btn"
-       href="mailto:poojabakhtani09@gmail.com">
-      Email
-    </a>
+        <a class="btn"
+           href="./pooja resume final.pdf"
+           target="_blank"
+           download>
+          📄 Download Resume
+        </a>
 
-  </div>
+        <a class="btn"
+           href="https://wa.me/919977730624"
+           target="_blank">
+          💬 WhatsApp
+        </a>
+
+        <a class="btn"
+           href="mailto:poojabakhtani09@gmail.com">
+          ✉ Email
+        </a>
+
+      </div>
+    </div>
+  </header>
 
 
-  <!-- PROFESSIONAL SUMMARY -->
-  <div class="card">
+  <!-- QUICK STATS -->
+  <section class="stats">
 
-    <h2>Professional Summary</h2>
+    <div class="stat">
+      <strong>8+</strong>
+      <span>Years Experience</span>
+    </div>
 
-    <p>
+    <div class="stat">
+      <strong>AI</strong>
+      <span>Automation</span>
+    </div>
+
+    <div class="stat">
+      <strong>BI</strong>
+      <span>Power BI & MIS</span>
+    </div>
+
+    <div class="stat">
+      <strong>SQL</strong>
+      <span>Data Analytics</span>
+    </div>
+
+  </section>
+
+
+  <!-- SUMMARY -->
+  <section class="card">
+
+    <div class="section-title">
+      <div class="section-icon">👩‍💼</div>
+      <h2>Professional Summary</h2>
+    </div>
+
+    <p class="summary-text">
       B.Com, LL.B professional with 8+ years in CA-office support across
       income tax, GST, TDS audits, compliance, and reporting.
       Delivered accurate audit assistance, reconciliation support,
       and compliance documentation.
     </p>
 
-    <p>
+    <br>
+
+    <p class="summary-text">
       Built hands-on capability in AI automation using workflows,
       AI agents, Power BI, SQL, Power Query, Python, and Advanced Excel.
     </p>
 
-  </div>
+  </section>
 
 
   <!-- SKILLS -->
-  <div class="card">
+  <section class="card">
 
-    <h2>Skills</h2>
+    <div class="section-title">
+      <div class="section-icon">⚡</div>
+      <h2>Core Skills</h2>
+    </div>
 
     <div class="skills">
 
@@ -246,153 +637,191 @@
 
     </div>
 
-  </div>
+  </section>
 
 
   <!-- EXPERIENCE -->
-  <div class="card">
+  <section class="card">
 
-    <h2>Professional Experience</h2>
+    <div class="section-title">
+      <div class="section-icon">💼</div>
+      <h2>Professional Experience</h2>
+    </div>
 
-    <div class="experience">
+    <div class="timeline">
 
-      <h3>Ojha Agrawal & Associates</h3>
+      <div class="experience">
 
-      <div class="date">
-        Office Assistant | Nagpur | 06/2023 – 01/2025
+        <h3>Ojha Agrawal & Associates</h3>
+
+        <div class="date">
+          Office Assistant | Nagpur | 06/2023 – 01/2025
+        </div>
+
+        <ul>
+          <li>
+            Prepared client reports and assisted with daily compliance tracking.
+          </li>
+
+          <li>
+            Managed financial records and supporting documentation
+            for reporting and review.
+          </li>
+
+          <li>
+            Supported GST, TDS, and income tax filing tasks,
+            along with related compliance activities.
+          </li>
+
+          <li>
+            1.5 years
+          </li>
+        </ul>
+
       </div>
 
-      <ul>
-        <li>
-          Prepared client reports and assisted with daily compliance tracking.
-        </li>
 
-        <li>
-          Managed financial records and supporting documentation
-          for reporting and review.
-        </li>
+      <div class="experience">
 
-        <li>
-          Supported GST, TDS, and income tax filing tasks,
-          along with related compliance activities.
-        </li>
+        <h3>G.C. Jain & Co., Chartered Accountant</h3>
 
-        <li>
-          1.5 years
-        </li>
-      </ul>
+        <div class="date">
+          Office Assistant | Dhamtari | 05/2013 – 04/2023
+        </div>
 
-    </div>
+        <ul>
 
+          <li>
+            Prepared income tax filings, GST returns, and TDS
+            compliance submissions to ensure timely and accurate tax reporting.
+          </li>
 
-    <div class="experience">
+          <li>
+            Assisted with GST audits and tax audit work by analyzing
+            accounting records and client-provided information.
+          </li>
 
-      <h3>G.C. Jain & Co., Chartered Accountant</h3>
+          <li>
+            Maintained compliance files and financial records
+            using MS Office and Tally.
+          </li>
 
-      <div class="date">
-        Office Assistant | Dhamtari | 05/2013 – 04/2023
+          <li>
+            Coordinated reporting reviews and client communication
+            for routine finance activities.
+          </li>
+
+          <li>
+            Conducted tax audits and supported compliance with regulations.
+          </li>
+
+        </ul>
+
       </div>
 
-      <ul>
-        <li>
-          Prepared income tax filings, GST returns, and TDS
-          compliance submissions to ensure timely and accurate tax reporting.
-        </li>
+    </div>
 
-        <li>
-          Assisted with GST audits and tax audit work by analyzing
-          accounting records and client-provided information.
-        </li>
+  </section>
 
-        <li>
-          Maintained compliance files and financial records
-          using MS Office and Tally.
-        </li>
 
-        <li>
-          Coordinated reporting reviews and client communication
-          for routine finance activities.
-        </li>
+  <!-- PROJECTS -->
+  <section class="card">
 
-        <li>
-          Conducted tax audits and supported compliance with regulations.
-        </li>
-      </ul>
+    <div class="section-title">
+      <div class="section-icon">🤖</div>
+      <h2>AI Automation & Data Projects</h2>
+    </div>
+
+    <div class="projects">
+
+      <article class="project">
+
+        <div class="project-icon">📦</div>
+
+        <h3>AI Inventory Automation</h3>
+
+        <span class="tech">
+          N8N + AI Agent + Google Sheets
+        </span>
+
+        <p>
+          Designed an inventory-assistant workflow for stock inquiries,
+          sales, invoice creation and stock updates.
+          Connected automation logic with Google Sheets for inventory
+          and invoice workflows.
+        </p>
+
+      </article>
+
+
+      <article class="project">
+
+        <div class="project-icon">📊</div>
+
+        <h3>Power BI & Excel Business Reporting</h3>
+
+        <span class="tech">
+          Power BI + Excel
+        </span>
+
+        <p>
+          Built reporting concepts covering sales, purchase, expenses,
+          gross profit, net profit and KPI trends.
+        </p>
+
+      </article>
+
+
+      <article class="project">
+
+        <div class="project-icon">💰</div>
+
+        <h3>Finance Analysis</h3>
+
+        <span class="tech">
+          Financial Analysis
+        </span>
+
+        <p>
+          Worked with CMA-style financial statements and bank-loan ratios
+          including current ratio, debt-equity ratio, margins and
+          interest coverage.
+        </p>
+
+      </article>
 
     </div>
 
-  </div>
+  </section>
 
 
-  <!-- AI AUTOMATION PROJECTS -->
-  <div class="card">
-
-    <h2>AI Automation & Data Projects</h2>
-
-    <div class="project">
-
-      <h3>AI Inventory Automation</h3>
-
-      <p>
-        <b>N8N + AI Agent + Google Sheets</b>
-      </p>
-
-      <p>
-        Designed an inventory-assistant workflow for stock inquiries,
-        sales, invoice creation and stock updates.
-        Connected automation logic with Google Sheets for inventory
-        and invoice workflows.
-      </p>
-
-    </div>
-
-
-    <div class="project">
-
-      <h3>Power BI & Excel Business Reporting</h3>
-
-      <p>
-        Built reporting concepts covering sales, purchase, expenses,
-        gross profit, net profit and KPI trends.
-      </p>
-
-    </div>
-
-
-    <div class="project">
-
-      <h3>Finance Analysis</h3>
-
-      <p>
-        Worked with CMA-style financial statements and bank-loan ratios
-        including current ratio, debt-equity ratio, margins and
-        interest coverage.
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <!-- EDUCATION & CERTIFICATIONS -->
+  <!-- EDUCATION + CERTIFICATIONS -->
   <div class="grid">
 
-    <div class="card">
+    <section class="card">
 
-      <h2>Education</h2>
+      <div class="section-title">
+        <div class="section-icon">🎓</div>
+        <h2>Education</h2>
+      </div>
 
       <h3>Bachelor of Laws (LL.B.)</h3>
-      <p>01/2017</p>
+      <p class="summary-text">01/2017</p>
+
+      <br>
 
       <h3>Bachelor of Commerce (B.Com)</h3>
-      <p>01/2013</p>
+      <p class="summary-text">01/2013</p>
 
-    </div>
+    </section>
 
 
-    <div class="card">
+    <section class="card">
 
-      <h2>Certifications</h2>
+      <div class="section-title">
+        <div class="section-icon">🏆</div>
+        <h2>Certifications</h2>
+      </div>
 
       <ul>
         <li>AI & Data Analytics</li>
@@ -404,35 +833,45 @@
         <li>CMA / Bank-Loan Financial Analysis</li>
       </ul>
 
-    </div>
+    </section>
 
   </div>
 
 
   <!-- PROFILES -->
-  <div class="card center">
+  <section class="card">
 
-    <h2>Professional Profiles</h2>
+    <div class="section-title">
+      <div class="section-icon">🔗</div>
+      <h2>Professional Profiles</h2>
+    </div>
 
-    <a class="btn"
-       href="https://www.linkedin.com/in/adv-miss-pooja-bakhtani-1078431a0/"
-       target="_blank">
-      LinkedIn Profile
-    </a>
+    <div class="profile-buttons">
 
-    <a class="btn"
-       href="https://github.com/poojabakhtani09-a11y/POOJA-RESUME"
-       target="_blank">
-      GitHub
-    </a>
+      <a class="profile-btn"
+         href="https://www.linkedin.com/in/adv-miss-pooja-bakhtani-1078431a0/"
+         target="_blank">
+        🔗 LinkedIn Profile
+      </a>
 
-  </div>
+      <a class="profile-btn"
+         href="https://github.com/poojabakhtani09-a11y/POOJA-RESUME"
+         target="_blank">
+        💻 GitHub
+      </a>
+
+    </div>
+
+  </section>
 
 
   <!-- QR -->
-  <div class="card center">
+  <section class="card qr">
 
-    <h2>Portfolio QR</h2>
+    <div class="section-title" style="justify-content:center;">
+      <div class="section-icon">📱</div>
+      <h2>Portfolio QR</h2>
+    </div>
 
     <img
       src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://poojabakhtani09-a11y.github.io/POOJA-RESUME/"
@@ -440,43 +879,53 @@
       height="180"
       alt="Pooja Bakhtani Portfolio QR">
 
-    <p>
-      Scan to open my portfolio
+    <p class="summary-text">
+      Scan to open my professional portfolio
     </p>
 
-  </div>
+  </section>
 
 
   <!-- CONTACT -->
-  <div class="card contact">
+  <section class="card contact">
 
-    <h2>Contact</h2>
-
-    <p>
-      <b>Email:</b>
-      <a href="mailto:poojabakhtani09@gmail.com">
-        poojabakhtani09@gmail.com
-      </a>
-    </p>
+    <div class="section-title" style="justify-content:center;">
+      <div class="section-icon">📩</div>
+      <h2>Let's Connect</h2>
+    </div>
 
     <p>
-      <b>Mobile:</b>
-      +91 99777-30624
+      Open to opportunities in AI Automation, MIS Finance,
+      Data Analytics and related roles.
     </p>
 
-    <p>
-      <b>Location:</b>
-      Dhamtari, Chhattisgarh
-    </p>
+    <div class="contact-info">
 
-  </div>
+      <div class="contact-item">
+        ✉
+        <a href="mailto:poojabakhtani09@gmail.com">
+          poojabakhtani09@gmail.com
+        </a>
+      </div>
+
+      <div class="contact-item">
+        📱 +91 99777-30624
+      </div>
+
+      <div class="contact-item">
+        📍 Dhamtari, Chhattisgarh
+      </div>
+
+    </div>
+
+  </section>
 
 
-  <div class="footer">
-
+  <footer class="footer">
     © 2026 Pooja Bakhtani | Finance & Data Analytics Portfolio
+  </footer>
 
-  </div>
+</div>
 
 </body>
 </html>
